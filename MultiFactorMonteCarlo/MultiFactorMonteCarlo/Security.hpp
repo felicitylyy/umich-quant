@@ -10,13 +10,18 @@
 #define Security_hpp
 
 #include <string>
+#include "MarketScenario.hpp"
+#include "MarketFactor.hpp"
 
 class Security {
 public:
-    Security(const std::string& name);
+    Security(const MarketFactor& factor);
+    
+    double valueOfOneUnit(const MarketScenario&) const;
+    double simValueOfOneUnit(const MarketScenario&, const MarketSimulation&) const;
     
 private:
-    const std::string m_name;
+    const MarketFactor& m_factor;
     
 };
 

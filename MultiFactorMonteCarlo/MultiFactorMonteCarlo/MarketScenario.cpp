@@ -8,8 +8,11 @@
 
 #include "MarketScenario.hpp"
 
-MarketScenario::MarketScenario(int year, int month, int day):m_pricingDtae(year,month,day)
-{
-    
-    
+MarketScenario::MarketScenario(const Market& market, int y, int m, int d):m_market(market), m_pricingDate(y,m,d){
 }
+
+double MarketScenario::price(const MarketFactor& factor) const{
+    return factor.mostRecentPrice();
+}
+
+
